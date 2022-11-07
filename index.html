@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+	  <video id="intro" width="1920" height="1080" autoplay muted>
+	    <source src="scpintro.mp4" type="video/mp4">
+	  </video>
+	  <video id="anim" width="1920" height="1080" muted loop>
+	    <source src="scpanim.mp4" type="video/mp4">
+	  </video>
+
+	  <script>
+      document.getElementById('intro').addEventListener('ended',myHandler,false);
+      async function myHandler(e) {
+          console.log("joe");
+          var x = document.getElementById("intro");
+          x.style.display = "none";
+          var y = document.getElementById("anim");
+          await sleep(250);
+          y.play();
+          y.style.display = "auto";
+      }
+      function sleep(milliseconds) {  
+        return new Promise(resolve => setTimeout(resolve, milliseconds));  
+      }  
+    </script>
+  </body>
+</html>
+
